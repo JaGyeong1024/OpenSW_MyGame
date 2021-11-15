@@ -1,10 +1,10 @@
 import pygame
 import random
 
-pygame.init() #파이 게임 초기화
+pygame.init() 
 SCREEN_WIDTH = 360
 SCREEN_HEIGHT = 480
-screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT)) #화면 크기 설정
+screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT)) 
 pygame.display.set_caption("Sudoku")
 clock = pygame.time.Clock() 
 
@@ -38,12 +38,12 @@ for _ in range(BOMB_COUNT):
             tile.bomb = True #폭탄 설치
             break
         
-while True: #게임 루프
-    screen.fill(light_GRAY) #단색으로 채워 화면 지우기
+while True: 
+    screen.fill(light_GRAY)
 
     #변수 업데이트
 
-    event = pygame.event.poll() #이벤트 처리
+    event = pygame.event.poll() 
     if event.type == pygame.QUIT:
         break
     elif event.type == pygame.MOUSEBUTTONDOWN:
@@ -69,7 +69,7 @@ while True: #게임 루프
                 dot_image = small_font.render('{}'.format('.'), True, WHITE) 
                 screen.blit(dot_image, (CELL_SIZE * column_index + 10, CELL_SIZE * row_index + 10)) #임시로 폭탄 표시
 
-    pygame.display.update() #모든 화면 그리기 업데이트
-    clock.tick(30) #30 FPS (초당 프레임 수) 를 위한 딜레이 추가, 딜레이 시간이 아닌 목표로 하는 FPS 값
+    pygame.display.update() 
+    clock.tick(30) 
 
 pygame.quit() 
