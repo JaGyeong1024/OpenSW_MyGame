@@ -1,1 +1,1 @@
-# OpenSW_MyGame
+# OpenSW_Sudoku Game
