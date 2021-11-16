@@ -3,32 +3,8 @@ from sys import exit
 import pygame
 import time
 import random
+
 pygame.init()
-
-def print_board(board):
-
-    boardString = ''
-    for i in range(9):
-        for j in range(9):
-            boardString += str(board[i][j]) + ' '
-            if (j + 1) % 3 == 0 and j != 0 and j + 1 != 9:
-                boardString += '| '
-
-            if j == 8:
-                boardString += '\n'
-
-            if j == 8 and (i + 1) % 3 == 0 and i + 1 != 9:
-                boardString += '- - - - - - - - - - - \n'
-    print(boardString)
-
-
-def find_empty(board):
-
-    for i in range(9):
-        for j in range(9):
-            if board[i][j] == 0:
-                return (i, j)
-
 
 def valid(board, pos, num):
 
@@ -49,6 +25,12 @@ def valid(board, pos, num):
                 return False
     return True
 
+def find_empty(board):
+
+    for i in range(9):
+        for j in range(9):
+            if board[i][j] == 0:
+                return (i, j)
 
 def solve(board):
 
@@ -84,7 +66,6 @@ def generate():
         partialBoard = deepcopy(board)  
         if solve(board):
             return partialBoard
-
 
 class Board:
 
@@ -245,14 +226,11 @@ class Tile:
             self.selected = True
         return self.selected
 
-
 def main():
 
     screen = pygame.display.set_mode((540, 590))
     screen.fill((255, 255, 255))
     pygame.display.set_caption('Sudoku Solver')
-    icon = pygame.image.load('picture/thumbnail.png')
-    pygame.display.set_icon(icon)
 
     font = pygame.font.SysFont('Bahnschrift', 40)
     text = font.render('Generating', True, (0, 0, 0))
