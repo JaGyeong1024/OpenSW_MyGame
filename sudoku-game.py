@@ -53,7 +53,10 @@ def generate():
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 exit()
-        board = [[0 for i in range(9)] for j in range(9)]
+        board = []
+
+        for i in range (9):
+            board += [[0]*9]
 
         for i in range(9):
             for j in range(9):
@@ -230,15 +233,7 @@ def main():
 
     screen = pygame.display.set_mode((540, 590))
     screen.fill((255, 255, 255))
-    pygame.display.set_caption('Sudoku Solver')
 
-    font = pygame.font.SysFont('Bahnschrift', 40)
-    text = font.render('Generating', True, (0, 0, 0))
-    screen.blit(text, (175, 245))
-
-    font = pygame.font.SysFont('Bahnschrift', 40)
-    text = font.render('Random Grid', True, (0, 0, 0))
-    screen.blit(text, (156, 290))
     pygame.display.flip()
 
     wrong = 0
