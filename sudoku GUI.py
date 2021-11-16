@@ -195,7 +195,7 @@ def main():
     screen = pygame.display.set_mode((540, 590))
     screen.fill((255, 255, 255))
     pygame.display.set_caption('Sudoku Solver')
-    icon = pygame.image.load('assets/thumbnail.png')
+    icon = pygame.image.load('picture/thumbnail.png')
     pygame.display.set_icon(icon)
 
     font = pygame.font.SysFont('Bahnschrift', 40)
